@@ -46,7 +46,7 @@
   gap: 20px; 
 }
 
-.text-btn, .filters button {
+.text-btn {
   display: flex; 
   align-items: center; 
   gap: 6px;
@@ -58,8 +58,44 @@
   cursor: pointer;
   transition: color 0.2s ease;
 }
-.text-btn:hover, .filters button:hover { 
+.text-btn:hover { 
   color: #60a5fa; 
+}
+
+.filter-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: #3b82f6;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.filter-trigger:hover {
+  color: #60a5fa;
+}
+
+.filter-trigger[data-state="open"] {
+  color: #f43f5e;
+}
+
+.filter-trigger .chevron {
+  transition: rotate 0.2s ease;
+}
+
+.filter-trigger[data-state="open"] .chevron {
+  rotate: 180deg;
+}
+
+.filter-trigger.text-only {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .icon-btn { 
@@ -89,6 +125,39 @@
 }
 .add-btn:hover { 
   background: #2563eb; 
+}
+
+.dropdown-content {
+  background: #2b2e40;
+  border-radius: 8px;
+  padding: 6px 0;
+  min-width: 155px;
+  box-shadow: 0 10px 25px #00000073;
+  border: 1px solid #363a50;
+  z-index: 1000;
+  animation: dropdownFadeIn 0.12s ease-out;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  color: #cbd5e1;
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.dropdown-item[data-highlighted] {
+  background: #363a50;
+  color: #ffffff;
+}
+
+.dropdown-item svg {
+  flex-shrink: 0;
 }
 
 .content {
@@ -132,12 +201,18 @@
 }
 
 .fab-btn {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: #3b82f61a; border: 2px solid #3b82f6; color: #3b82f6;
-  display: flex; justify-content: center; align-items: center;
-  cursor: pointer; transition: all 0.2s ease;
+  width: 56px; 
+  height: 56px; 
+  border-radius: 50%;
+  background: #3b82f61a; 
+  border: 2px solid #3b82f6; 
+  color: #3b82f6;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  cursor: pointer; 
+  transition: all 0.2s ease;
 }
-
 .fab-btn:hover { 
   background: #3b82f6; 
   color: #fff; 
@@ -146,4 +221,15 @@
 @keyframes pulse {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 0.2; }
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    translate: 0 -4px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
 }
