@@ -26,20 +26,23 @@ import Sidebar from "../components/Sidebar";
 import "../styles/Dashboard.css";
 export default function Dashboard() {
   return (
-   <div className="layout">
+    <div className="layout">
       <Sidebar />
       <div className="dashboard">
         <header className="topbar">
           <div className="title">
-            <h1>My Collections</h1>
-            <span>| 0 collections</span>
+            <span className="eyebrow">SPACE OVERVIEW</span>
+            <div className="title-row">
+              <h1>My Collections</h1>
+              <span className="collection-count">0 collections</span>
+            </div>
           </div>
           <div className="actions">
             <button className="text-btn">
-              <Share2 size={15} /> SHARE
+              <Share2 size={16} /> SHARE
             </button>
-            <button className="icon-btn">
-              <Settings size={18} />
+            <button className="icon-btn" aria-label="Settings">
+              <Settings size={17} />
             </button>
           </div>
         </header>
@@ -48,9 +51,9 @@ export default function Dashboard() {
             <DropdownMenu>
               <DropdownTrigger asChild>
                 <button className="filter-trigger">
-                  <SlidersHorizontal size={14} />
+                  <SlidersHorizontal size={15} />
                   DRAG & DROP
-                  <ChevronDown size={14} className="chevron" />
+                  <ChevronDown size={13} className="chevron" />
                 </button>
               </DropdownTrigger>
               <DropdownPortal>
@@ -73,9 +76,9 @@ export default function Dashboard() {
             <DropdownMenu>
               <DropdownTrigger asChild>
                 <button className="filter-trigger">
-                  <Tag size={14} />
+                  <Tag size={15} />
                   TAG FILTER
-                  <ChevronDown size={14} className="chevron" />
+                  <ChevronDown size={13} className="chevron" />
                 </button>
               </DropdownTrigger>
               <DropdownPortal>
@@ -92,9 +95,9 @@ export default function Dashboard() {
             <DropdownMenu>
               <DropdownTrigger asChild>
                 <button className="filter-trigger">
-                  <LayoutGrid size={14} />
+                  <LayoutGrid size={15} />
                   VIEW
-                  <ChevronDown size={14} className="chevron" />
+                  <ChevronDown size={13} className="chevron" />
                 </button>
               </DropdownTrigger>
               <DropdownPortal>
@@ -118,20 +121,17 @@ export default function Dashboard() {
             <button className="filter-trigger text-only">COLLAPSE</button>
           </div>
           <button className="add-btn">
-            <Plus size={16} /> ADD COLLECTION
+            <Plus size={15} /> ADD COLLECTION
           </button>
         </nav>
         <main className="content">
-          <div className="skeleton-grid">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div key={i} className="skeleton-card" />
-            ))}
-          </div>
           <div className="empty-state">
-            <h2>No collections shared with this space yet.</h2>
-            <p>ADD OR SHARE COLLECTIONS WITH YOUR SPACE AND YOU WILL SEE THEM HERE.</p>
-            <button className="fab-btn">
-              <Plus size={24} />
+            <div className="empty-copy">
+              <h2>No collections shared with this space yet.</h2>
+              <p>ADD OR SHARE COLLECTIONS WITH YOUR SPACE AND YOU WILL SEE THEM HERE.</p>
+            </div>
+            <button className="fab-btn" aria-label="Add your first collection">
+              <Plus size={21} />
             </button>
           </div>
         </main>
