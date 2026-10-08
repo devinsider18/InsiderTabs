@@ -31,7 +31,7 @@ export default function Dashboard() {
       <div className="dashboard">
         <header className="topbar">
           <div className="title">
-            <span className="eyebrow">SPACE OVERVIEW</span>
+            <span className="eyebrow">Space overview</span>
             <div className="title-row">
               <h1>My Collections</h1>
               <span className="collection-count">0 collections</span>
@@ -39,7 +39,7 @@ export default function Dashboard() {
           </div>
           <div className="actions">
             <button className="text-btn">
-              <Share2 size={16} /> SHARE
+              <Share2 size={16} /> Share
             </button>
             <button className="icon-btn" aria-label="Settings">
               <Settings size={17} />
@@ -52,7 +52,7 @@ export default function Dashboard() {
               <DropdownTrigger asChild>
                 <button className="filter-trigger">
                   <SlidersHorizontal size={15} />
-                  DRAG & DROP
+                  Drag & drop
                   <ChevronDown size={13} className="chevron" />
                 </button>
               </DropdownTrigger>
@@ -77,7 +77,7 @@ export default function Dashboard() {
               <DropdownTrigger asChild>
                 <button className="filter-trigger">
                   <Tag size={15} />
-                  TAG FILTER
+                  Tag filter
                   <ChevronDown size={13} className="chevron" />
                 </button>
               </DropdownTrigger>
@@ -96,7 +96,7 @@ export default function Dashboard() {
               <DropdownTrigger asChild>
                 <button className="filter-trigger">
                   <LayoutGrid size={15} />
-                  VIEW
+                  View
                   <ChevronDown size={13} className="chevron" />
                 </button>
               </DropdownTrigger>
@@ -117,18 +117,18 @@ export default function Dashboard() {
                 </DropdownContent>
               </DropdownPortal>
             </DropdownMenu>
-            <button className="filter-trigger text-only">EXPAND</button>
-            <button className="filter-trigger text-only">COLLAPSE</button>
+            <button className="filter-trigger text-only">Expand</button>
+            <button className="filter-trigger text-only">Collapse</button>
           </div>
           <button className="add-btn">
-            <Plus size={15} /> ADD COLLECTION
+            <Plus size={15} /> Add collection
           </button>
         </nav>
         <main className="content">
           <div className="empty-state">
             <div className="empty-copy">
               <h2>No collections shared with this space yet.</h2>
-              <p>ADD OR SHARE COLLECTIONS WITH YOUR SPACE AND YOU WILL SEE THEM HERE.</p>
+              <p>Add or share collections with your space and they’ll appear here.</p>
             </div>
             <button className="fab-btn" aria-label="Add your first collection">
               <Plus size={21} />

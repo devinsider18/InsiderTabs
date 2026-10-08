@@ -17,14 +17,14 @@ export default function Sidebar() {
         <span className="search-shortcut" aria-hidden="true">⌘ K</span>
       </div>
       <nav className="sidebar-nav">
-        <NavLink to="/links">
-          <LinkIcon size={17} /> To / Links
-        </NavLink>
         <NavLink to="/next">
           <Bookmark size={17} /> Next
         </NavLink>
+        <NavLink to="/links">
+          <LinkIcon size={17} /> To/Links
+        </NavLink>
         <div className="spaces-title">
-          <span>SPACES</span>
+          <span>Spaces</span>
           <div className="spaces-actions">
             <button aria-label="Sort spaces"><ArrowDownAZ size={14} /></button>
             <button aria-label="Add space"><Plus size={14} /></button>

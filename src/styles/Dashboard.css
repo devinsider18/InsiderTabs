@@ -49,10 +49,10 @@
 }
 
 .eyebrow {
-  color: #77797e;
-  font-size: 9px;
+  color: #a0a1a5;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.08em;
 }
 
 .title-row {
@@ -75,7 +75,7 @@
   border-radius: 6px;
   background: #18191b;
   color: #9a9ba0;
-  font-size: 10px;
+  font-size: 12px;
   white-space: nowrap;
 }
 
@@ -110,9 +110,8 @@
   border-radius: 7px;
   background: #191a1c;
   color: #d8d8da;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 650;
-  letter-spacing: 0.05em;
 }
 
 .text-btn:hover {
@@ -158,9 +157,8 @@
   border-radius: 6px;
   background: transparent;
   color: #a4a5a9;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 650;
-  letter-spacing: 0.065em;
 }
 
 .filter-trigger:hover,
@@ -199,9 +197,8 @@
   border-radius: 7px;
   background: #e5e5e7;
   color: #101113;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 750;
-  letter-spacing: 0.055em;
 }
 
 .add-btn:hover {
@@ -229,7 +226,7 @@
   padding: 8px 9px;
   border-radius: 5px;
   color: #c7c8ca;
-  font-size: 11px;
+  font-size: 13px;
   cursor: pointer;
   outline: none;
   user-select: none;
@@ -298,13 +295,12 @@
 }
 
 .empty-state p {
-  max-width: 320px;
+  max-width: 360px;
   margin: 0 auto;
-  color: #85868b;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  line-height: 1.8;
+  color: #b0b1b5;
+  font-size: 13px;
+  font-weight: 450;
+  line-height: 1.6;
 }
 
 .fab-btn {
@@ -368,6 +364,11 @@
     padding-inline: 22px;
   }
 
+  .layout > .sidebar {
+    width: 220px;
+    min-width: 220px;
+  }
+
   .filters {
     gap: 1px;
   }
@@ -385,6 +386,12 @@
     overflow: auto;
   }
 
+  .layout > .sidebar {
+    width: 100%;
+    min-width: 0;
+    min-height: auto;
+  }
+
   .topbar {
     min-height: 78px;
     padding-inline: 18px;
@@ -392,18 +399,26 @@
 
   .toolbar {
     min-height: auto;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 14px;
+    align-items: stretch;
+    gap: 8px;
+    padding: 10px 16px;
   }
 
   .filters {
-    flex-wrap: wrap;
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none;
   }
 
   .filter-trigger {
+    flex: 0 0 auto;
     min-height: 30px;
-    font-size: 8px;
+    font-size: 10px;
   }
 
   .filter-trigger.text-only {
@@ -411,9 +426,10 @@
   }
 
   .add-btn {
-    flex-shrink: 0;
+    align-self: flex-end;
+    flex: 0 0 auto;
     padding-inline: 9px;
-    font-size: 8px;
+    font-size: 10px;
   }
 
   .content {
@@ -438,7 +454,7 @@
 
   .collection-count {
     padding: 3px 6px;
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .text-btn {
@@ -459,11 +475,12 @@
   }
 
   .empty-state {
+    width: min(100%, 400px);
     padding: 22px 18px 24px;
   }
 
   .empty-state p {
-    font-size: 8px;
+    font-size: 12px;
   }
 }
 

@@ -49,7 +49,7 @@
   overflow: hidden;
   margin: 0;
   color: #e9e9ea;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.02em;
   text-overflow: ellipsis;
@@ -105,7 +105,7 @@
   background: transparent;
   color: #f2f2f3;
   font: inherit;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .search-bar input::placeholder {
@@ -119,7 +119,7 @@
   border: 1px solid #343538;
   border-radius: 4px;
   color: #85868b;
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 0.03em;
 }
 
@@ -140,7 +140,7 @@
   border: 1px solid transparent;
   border-radius: 6px;
   color: #a1a2a6;
-  font-size: 11px;
+  font-size: 13px;
   text-decoration: none;
   transition:
     color 140ms ease,
@@ -192,7 +192,7 @@
   margin: 21px 0 5px;
   padding: 0 9px;
   color: #77797e;
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.14em;
 }
@@ -238,14 +238,21 @@
 
   .sidebar-nav {
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 4px;
-    padding: 0 10px 10px;
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 0 12px 10px;
+    scrollbar-width: none;
+  }
+
+  .sidebar-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .sidebar-nav a {
-    padding: 7px 8px;
-    font-size: 10px;
+    flex: 0 0 auto;
+    padding: 8px 10px;
+    font-size: 12px;
   }
 
   .sidebar-nav a.active::before {
@@ -253,16 +260,18 @@
   }
 
   .spaces-title {
-    flex: 0 0 100%;
-    margin: 4px 0 0;
+    flex: 0 0 auto;
+    gap: 8px;
+    margin: 0 2px;
+    padding: 0 4px;
+  }
+
+  .spaces-actions {
+    display: none;
   }
 }
 
 @media (max-width: 460px) {
-  .sidebar-nav a {
-    flex: 1 1 calc(50% - 4px);
-  }
-
   .sidebar-nav a.active::before {
     display: block;
     left: -1px;
