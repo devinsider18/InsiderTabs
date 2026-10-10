@@ -1,4 +1,4 @@
-import { Bookmark, LinkIcon, Search, UserRound, PanelLeftClose } from "lucide-react";
+import { Bookmark, LinkIcon, Search, UserRound, PanelLeftClose, LayoutDashboard } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import "../styles/Sidebar.css";
 
@@ -21,6 +21,9 @@ export default function Sidebar({ onOpenProfile }: SidebarProps) {
         <span className="search-shortcut" aria-hidden="true">⌘ K</span>
       </div>
       <nav className="sidebar-nav">
+        <NavLink to="/dashboard">
+          <LayoutDashboard size={17} /> Dashboard
+        </NavLink>
         <NavLink to="/next">
           <Bookmark size={17} /> Next
         </NavLink>

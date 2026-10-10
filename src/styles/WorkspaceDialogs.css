@@ -1,0 +1,162 @@
+.workspace-dialog {
+  width: min(440px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  overflow: auto;
+  border: 1px solid #393a3d;
+  border-radius: 12px;
+  background: #151618;
+  color: #ededee;
+  box-shadow: 0 24px 80px #000b;
+}
+
+.workspace-dialog::backdrop {
+  background: #050506b8;
+  backdrop-filter: blur(4px);
+}
+
+.workspace-dialog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 23px;
+}
+
+.workspace-dialog-form h2 {
+  margin: 0;
+  color: #f1f1f2;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.workspace-dialog-description {
+  margin: -10px 0 5px;
+  color: #d1d1d1;
+  font-size: 13px;
+}
+
+.workspace-dialog-form > label:not(.workspace-checkbox) {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.workspace-dialog-form > label > span {
+  color: #bfc0c3;
+  font-size: 11px;
+  font-weight: 550;
+}
+
+.workspace-dialog-form input:not([type="checkbox"]),
+.workspace-dialog-form select {
+  width: 100%;
+  min-height: 39px;
+  padding: 0 11px;
+  border: 1px solid #393a3d;
+  border-radius: 7px;
+  outline: none;
+  background: #101113;
+  color: #ededee;
+  font-size: 12px;
+}
+
+.workspace-dialog-form input:focus,
+.workspace-dialog-form select:focus {
+  border-color: #b3cb58;
+  box-shadow: 0 0 0 2px #d8f36a25;
+}
+
+.workspace-dialog-form input::placeholder {
+  color: #77797e;
+}
+
+.to-link-input {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border: 1px solid #393a3d;
+  border-radius: 8px;
+  background: #323232;
+}
+
+.to-link-input:focus-within {
+  border-color: #707b43;
+  box-shadow: 0 0 0 2px #d8f36a18;
+}
+
+.workspace-dialog-form .to-link-input > span {
+  color: var(--app-accent);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.workspace-dialog-form .to-link-input input {
+  min-height: 38px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.workspace-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #c4c5c8;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.workspace-checkbox input {
+  accent-color: #d8f36a;
+}
+
+.workspace-form-error {
+  margin: -4px 0 0;
+  color: #ffb5a3;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.workspace-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 3px;
+}
+
+.workspace-button {
+  min-height: 35px;
+  padding: 0 13px;
+  border: 1px solid #393a3d;
+  border-radius: 7px;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.workspace-button.secondary {
+  background: #1a1b1d;
+  color: #c2c3c6;
+}
+
+.workspace-button.primary {
+  border-color: #d8f36a;
+  background: #d8f36a;
+  color: #14160c;
+}
+
+.workspace-button:hover {
+  filter: brightness(1.08);
+}
+
+.workspace-button:focus-visible {
+  outline: 2px solid #d8f36a;
+  outline-offset: 2px;
+}

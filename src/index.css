@@ -29,3 +29,14 @@ button,
 input {
   font: inherit;
 }
+
+.workspace-data-error {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border: 1px solid #7e493e;
+  border-radius: 7px;
+  background: #351d19;
+  color: #ffd4c8;
+  font-size: 12px;
+  line-height: 1.5;
+}

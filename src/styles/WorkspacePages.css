@@ -172,6 +172,24 @@
   font-weight: 600;
 }
 
+.saved-link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.shortcut-count {
+  display: inline-grid !important;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  margin: 0 0 0 4px !important;
+  border-radius: 50%;
+  background: #303135;
+  color: #c9c9cb !important;
+  font-size: 9px !important;
+}
+
 @media (max-width: 720px) {
   .workspace-main {
     min-height: calc(100svh - 160px);

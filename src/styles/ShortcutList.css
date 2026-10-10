@@ -1,0 +1,321 @@
+.create-link-button {
+  cursor: pointer;
+}
+
+.create-link-button:hover {
+  border-color: #efffac;
+  background: #efffac;
+}
+
+.create-link-button:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 3px;
+}
+
+.to-link-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.to-link-jump {
+  width: min(100%, 520px);
+  padding: 15px;
+  border: 1px solid #303135;
+  border-radius: 9px;
+  background: #12131599;
+}
+
+.to-link-jump > label {
+  display: block;
+  margin-bottom: 8px;
+  color: #c4c5c8;
+  font-size: 11px;
+  font-weight: 550;
+}
+
+.to-link-jump-input {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 7px 0 11px;
+  border: 1px solid #36373a;
+  border-radius: 7px;
+  background: #101113;
+  color: var(--app-accent);
+}
+
+.to-link-jump-input:focus-within {
+  border-color: #707b43;
+  box-shadow: 0 0 0 2px #d8f36a18;
+}
+
+.to-link-jump-input > span {
+  flex: 0 0 auto;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.to-link-jump-input input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #ededee;
+  font: inherit;
+  font-size: 12px;
+}
+
+.to-link-jump-input input::placeholder {
+  color: #77797e;
+}
+
+.to-link-jump-input button {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: #b7b8bc;
+  cursor: pointer;
+}
+
+.to-link-jump-input button:not(:disabled):hover {
+  border-color: #393a3d;
+  background: #222326;
+  color: var(--app-accent);
+}
+
+.to-link-jump-input button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.to-link-jump-message {
+  margin: 8px 0 0;
+  color: #929398;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.to-link-jump-message.is-error {
+  color: #ffb5a3;
+}
+
+.to-link-list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #242528;
+}
+
+.to-link-list-heading h2 {
+  margin: 0;
+  color: #dedee0;
+  font-size: 13px;
+  font-weight: 550;
+}
+
+.to-link-list-heading span {
+  display: block;
+  margin-top: 4px;
+  color: #929398;
+  font-size: 10px;
+}
+
+.shortcut-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: -17px;
+}
+
+.shortcut-row {
+  min-width: 0;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid #303135;
+  border-radius: 8px;
+  background: #141517;
+  transition: border-color 130ms ease, background-color 130ms ease;
+}
+
+.shortcut-row:hover {
+  border-color: #414246;
+  background: #191a1c;
+}
+
+.shortcut-destination {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.shortcut-mark {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid #3a3b3e;
+  border-radius: 7px;
+  background: #222326;
+  color: var(--app-accent);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.shortcut-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.shortcut-copy strong,
+.shortcut-copy small,
+.shortcut-url {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.shortcut-copy strong {
+  color: #e7e7e8;
+  font-size: 12px;
+  font-weight: 550;
+}
+
+.shortcut-copy small {
+  color: #929398;
+  font-size: 10px;
+}
+
+.shortcut-url {
+  max-width: 38%;
+  margin-left: auto;
+  color: #929398;
+  font-size: 10px;
+}
+
+.shortcut-open-icon {
+  flex: 0 0 auto;
+  color: #76777c;
+  opacity: 0;
+  transition: opacity 130ms ease;
+}
+
+.shortcut-row:hover .shortcut-open-icon,
+.shortcut-row:focus-within .shortcut-open-icon {
+  opacity: 1;
+}
+
+.shortcut-actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  opacity: 0;
+  transition: opacity 130ms ease;
+}
+
+.shortcut-row:hover .shortcut-actions,
+.shortcut-row:focus-within .shortcut-actions {
+  opacity: 1;
+}
+
+.shortcut-actions button {
+  min-width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  padding: 0 6px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: #a7a8ac;
+  font: inherit;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.shortcut-actions button:hover {
+  border-color: #393a3d;
+  background: #222326;
+  color: #f1f1f2;
+}
+
+.shortcut-actions button:focus-visible,
+.to-link-jump-input button:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 2px;
+}
+
+.to-link-workspace .workspace-empty-state {
+  margin-top: -17px;
+}
+
+.to-link-workspace .workspace-empty-state code {
+  color: var(--app-accent);
+  font-size: 0.95em;
+}
+
+@media (max-width: 720px) {
+  .to-link-workspace {
+    gap: 20px;
+  }
+
+  .shortcut-url {
+    max-width: 31%;
+    font-size: 9px;
+  }
+
+  .shortcut-actions {
+    opacity: 1;
+  }
+
+  .shortcut-open-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 460px) {
+  .to-link-jump {
+    padding: 12px;
+  }
+
+  .shortcut-row {
+    gap: 4px;
+    padding-inline: 7px;
+  }
+
+  .shortcut-destination {
+    gap: 7px;
+  }
+
+  .shortcut-mark {
+    width: 26px;
+    height: 26px;
+  }
+
+  .shortcut-url {
+    display: none;
+  }
+
+  .shortcut-actions button {
+    min-width: 26px;
+    padding-inline: 4px;
+  }
+}

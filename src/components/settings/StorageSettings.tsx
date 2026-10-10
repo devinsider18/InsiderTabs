@@ -8,6 +8,7 @@ import {
   restoreLocalBackup,
   saveBackupToDrive,
 } from "../../lib/driveBackup";
+import { useWorkspace } from "../../lib/workspaceContext";
 
 function getErrorMessage(error: unknown): string {
   return error instanceof Error ? error.message : "An unexpected error occurred.";
@@ -25,6 +26,7 @@ function getInitialStorageState() {
 }
 
 export default function StorageSettings() {
+  const { reloadWorkspace } = useWorkspace();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [accessToken, setAccessToken] = useState<string>();
   const [busy, setBusy] = useState(false);
@@ -74,6 +76,7 @@ export default function StorageSettings() {
       const token = accessToken ?? await requestDriveAccess();
       setAccessToken(token);
       const restoredCount = await restoreBackupFromDrive(token);
+      reloadWorkspace();
       setEntryCount(restoredCount);
       setStatus(formatRestoreStatus(restoredCount));
     } catch (error) {
@@ -98,6 +101,7 @@ export default function StorageSettings() {
     setStatus("");
     try {
       const restoredCount = restoreLocalBackup(await file.text());
+      reloadWorkspace();
       setEntryCount(restoredCount);
       setStatus(formatRestoreStatus(restoredCount));
     } catch (error) {
@@ -138,8 +142,8 @@ export default function StorageSettings() {
       <div className="backup-explainer">
         <strong>{entryCount} local app {entryCount === 1 ? "item" : "items"} found</strong>
         <p>
-          Backups include LiberTab data stored in this browser. Collection and link
-          storage is not connected yet, so there may be nothing to back up.
+          Backups include your collections, links, To/Links, and other LiberTab data
+          stored in this browser.
         </p>
       </div>
 
