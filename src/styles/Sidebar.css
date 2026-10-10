@@ -24,13 +24,6 @@
   border-bottom: 1px solid #252629;
 }
 
-.workspace-identity {
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .workspace-mark {
   width: 28px;
   height: 28px;
@@ -45,19 +38,7 @@
   font-weight: 700;
 }
 
-.sidebar-header h2 {
-  overflow: hidden;
-  margin: 0;
-  color: #e9e9ea;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.sidebar-header button,
-.spaces-actions button {
+.sidebar-header button {
   display: grid;
   place-items: center;
   border: 0;
@@ -74,8 +55,7 @@
   border-radius: 6px;
 }
 
-.sidebar-header button:hover,
-.spaces-actions button:hover {
+.sidebar-header button:hover {
   color: #f1f1f2;
 }
 
@@ -185,36 +165,65 @@
   color: #ededee;
 }
 
-.spaces-title {
+.profile-button {
+  width: calc(100% - 20px);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: 21px 0 5px;
-  padding: 0 9px;
-  color: #77797e;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  gap: 10px;
+  margin: 0 10px 12px;
+  padding: 9px;
+  border: 1px solid #2c2d30;
+  border-radius: 8px;
+  background: #17181a;
+  color: #e8e8e9;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 140ms ease, background-color 140ms ease;
 }
 
-.spaces-actions {
+.profile-button:hover {
+  border-color: #45464a;
+  background: #1d1e20;
+}
+
+.profile-avatar {
+  width: 31px;
+  height: 31px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid #414246;
+  border-radius: 50%;
+  background: #252629;
+  color: #d8f36a;
+}
+
+.profile-copy {
+  min-width: 0;
+  flex: 1;
   display: flex;
+  flex-direction: column;
   gap: 2px;
 }
 
-.spaces-actions button {
-  width: 25px;
-  height: 25px;
-  border-radius: 5px;
+.profile-copy strong {
+  font-size: 12px;
+  font-weight: 600;
 }
 
-.spaces-actions button:hover {
-  background: #202124;
+.profile-copy small {
+  color: #98999e;
+  font-size: 10px;
+}
+
+.profile-open {
+  color: #b2b3b7;
+  font-size: 10px;
 }
 
 .sidebar-nav a:focus-visible,
 .sidebar-header button:focus-visible,
-.spaces-actions button:focus-visible {
+.profile-button:focus-visible {
   outline: 2px solid #e5e5e7;
   outline-offset: 2px;
 }
@@ -239,6 +248,7 @@
   .sidebar-nav {
     flex-direction: row;
     flex-wrap: nowrap;
+    flex: 0 0 auto;
     gap: 6px;
     overflow-x: auto;
     padding: 0 12px 10px;
@@ -259,14 +269,19 @@
     display: none;
   }
 
-  .spaces-title {
-    flex: 0 0 auto;
-    gap: 8px;
-    margin: 0 2px;
-    padding: 0 4px;
+  .profile-button {
+    width: auto;
+    align-self: flex-end;
+    margin: 0 12px 10px;
+    padding: 6px 8px;
   }
 
-  .spaces-actions {
+  .profile-avatar {
+    width: 28px;
+    height: 28px;
+  }
+
+  .profile-open {
     display: none;
   }
 }

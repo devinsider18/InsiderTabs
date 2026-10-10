@@ -8,8 +8,6 @@ import {
 import {
   LayoutGrid,
   Plus,
-  Settings,
-  Share2,
   SlidersHorizontal,
   Tag,
   ChevronDown,
@@ -28,19 +26,11 @@ export default function Dashboard() {
       <div className="dashboard">
         <header className="topbar">
           <div className="title">
-            <span className="eyebrow">Space overview</span>
+            <span className="eyebrow">Your library</span>
             <div className="title-row">
               <h1>My Collections</h1>
               <span className="collection-count">0 collections</span>
             </div>
-          </div>
-          <div className="actions">
-            <button className="text-btn">
-              <Share2 size={16} /> Share
-            </button>
-            <button className="icon-btn" aria-label="Settings">
-              <Settings size={17} />
-            </button>
           </div>
         </header>
         <nav className="toolbar">
