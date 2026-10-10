@@ -1,24 +1,15 @@
-.workspace-view {
-  --workspace-bg: #090a0b;
-  --workspace-surface: #121315;
-  --workspace-raised: #191a1c;
-  --workspace-line: #292a2d;
-  --workspace-text: #ededee;
-  --workspace-muted: #85868b;
-  --workspace-accent: #d8f36a;
-  min-height: 100vh;
-  display: flex;
-  background: var(--workspace-bg);
-  color: var(--workspace-text);
-  font-family: inherit;
-}
-
 .workspace-main {
+  --workspace-text: #ededee;
   min-width: 0;
+  min-height: 100vh;
   flex: 1;
+  display: flex;
+  flex-direction: column;
   background:
     radial-gradient(ellipse at 70% 0%, #1a1b1c66 0%, transparent 48%),
-    var(--workspace-bg);
+    var(--app-bg);
+  color: var(--workspace-text);
+  font-family: inherit;
 }
 
 .workspace-main svg {
@@ -34,7 +25,7 @@
   justify-content: space-between;
   gap: 24px;
   padding: 30px clamp(28px, 5vw, 72px);
-  border-bottom: 1px solid var(--workspace-line);
+  border-bottom: 1px solid var(--app-line);
 }
 
 .page-heading {
@@ -62,7 +53,7 @@
 }
 
 .workspace-page-title svg {
-  color: var(--workspace-accent);
+  color: var(--app-accent);
 }
 
 .page-description {
@@ -96,7 +87,7 @@
   border: 1px solid #353639;
   border-radius: 9px;
   background: #1b1c1e;
-  color: var(--workspace-accent);
+  color: var(--app-accent);
 }
 
 .workspace-empty-state h2 {
@@ -114,20 +105,17 @@
 }
 
 .create-link-button {
-  font-family: inherit;
-}
-
-.create-link-button {
   min-height: 38px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 0 14px;
-  border: 1px solid var(--workspace-accent);
+  border: 1px solid var(--app-accent);
   border-radius: 7px;
-  background: var(--workspace-accent);
+  background: var(--app-accent);
   color: #14160c;
+  font-family: inherit;
   font-size: 12px;
   font-weight: 700;
   cursor: default;
@@ -185,24 +173,8 @@
 }
 
 @media (max-width: 720px) {
-  .workspace-view {
-    flex-direction: column;
-  }
-
-  .workspace-view .sidebar {
-    width: 100%;
-    min-width: 0;
-    min-height: auto;
-    border-right: 0;
-    border-bottom: 1px solid #292a2d;
-  }
-
-  .workspace-view .sidebar-header {
-    min-height: 56px;
-  }
-
-  .workspace-view .search-bar {
-    margin: 8px 12px;
+  .workspace-main {
+    min-height: calc(100svh - 160px);
   }
 
   .workspace-page-header {

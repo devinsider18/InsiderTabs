@@ -1,25 +1,13 @@
-.layout {
+.dashboard {
   --ink: #f1f1f2;
-  --muted: #85868b;
-  --line: #292a2d;
-  --panel: #141517;
-  --surface: #101113;
-  --black: #090a0b;
-  --accent: #d8f36a;
+  min-width: 0;
   min-height: 100vh;
   display: flex;
-  overflow: hidden;
-  background: var(--black);
+  flex: 1;
+  flex-direction: column;
+  background: var(--app-bg);
   color: var(--ink);
   font-family: inherit;
-}
-
-.dashboard {
-  min-width: 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  background: var(--black);
 }
 
 .dashboard svg {
@@ -38,7 +26,7 @@
 
 .topbar {
   min-height: 88px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--app-line);
   background: #101113;
 }
 
@@ -139,7 +127,7 @@
 
 .toolbar {
   min-height: 56px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--app-line);
   background: #111214;
 }
 
@@ -332,7 +320,7 @@
 .text-btn:focus-visible,
 .icon-btn:focus-visible,
 .fab-btn:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--app-accent);
   outline-offset: 3px;
 }
 
@@ -364,7 +352,7 @@
     padding-inline: 22px;
   }
 
-  .layout > .sidebar {
+  .app-shell > .sidebar {
     width: 220px;
     min-width: 220px;
   }
@@ -380,16 +368,8 @@
 }
 
 @media (max-width: 720px) {
-  .layout {
-    min-height: 100svh;
-    flex-direction: column;
-    overflow: auto;
-  }
-
-  .layout > .sidebar {
-    width: 100%;
-    min-width: 0;
-    min-height: auto;
+  .dashboard {
+    min-height: calc(100svh - 160px);
   }
 
   .topbar {

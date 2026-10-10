@@ -4,7 +4,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #292a2d;
+  border-right: 1px solid var(--app-line);
   background: #101113;
   color: #a2a3a7;
 }
@@ -225,7 +225,7 @@
     min-width: 0;
     min-height: auto;
     border-right: 0;
-    border-bottom: 1px solid #292a2d;
+    border-bottom: 1px solid var(--app-line);
   }
 
   .sidebar-header {

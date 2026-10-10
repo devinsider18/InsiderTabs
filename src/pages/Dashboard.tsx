@@ -22,12 +22,9 @@ import {
   List,
   Grid,
 } from "lucide-react";
-import Sidebar from "../components/Sidebar";
 import "../styles/Dashboard.css";
 export default function Dashboard() {
   return (
-    <div className="layout">
-      <Sidebar />
       <div className="dashboard">
         <header className="topbar">
           <div className="title">
@@ -136,6 +133,5 @@ export default function Dashboard() {
           </div>
         </main>
       </div>
-    </div>
   )
 }

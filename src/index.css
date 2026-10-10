@@ -2,10 +2,16 @@
   box-sizing: border-box;
 }
 
+:root {
+  --app-bg: #090a0b;
+  --app-line: #292a2d;
+  --app-accent: #d8f36a;
+}
+
 html {
   min-width: 320px;
   min-height: 100%;
-  background: #090a0b;
+  background: var(--app-bg);
   font-family: "Google Sans Flex", "Google Sans", Arial, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -16,7 +22,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  background: #090a0b;
+  background: var(--app-bg);
 }
 
 button,

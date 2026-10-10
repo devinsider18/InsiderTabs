@@ -1,11 +1,8 @@
 import { Link2, Plus, Unlink } from "lucide-react";
-import Sidebar from "../components/Sidebar";
 import "../styles/WorkspacePages.css";
 
 export default function Links() {
   return (
-    <div className="workspace-view">
-      <Sidebar />
       <main className="workspace-main">
         <header className="workspace-page-header">
           <div className="page-heading">
@@ -38,6 +35,5 @@ export default function Links() {
           </div>
         </section>
       </main>
-    </div>
   );
 }

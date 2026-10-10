@@ -1,11 +1,8 @@
 import { Bookmark, BookmarkPlus } from "lucide-react";
-import Sidebar from "../components/Sidebar";
 import "../styles/WorkspacePages.css";
 
 export default function Next() {
   return (
-    <div className="workspace-view">
-      <Sidebar />
       <main className="workspace-main">
         <header className="workspace-page-header">
           <div className="page-heading">
@@ -27,6 +24,5 @@ export default function Next() {
           </div>
         </section>
       </main>
-    </div>
   );
 }
