@@ -122,14 +122,14 @@ function readWorkspace(): { data: WorkspaceData; error: string } {
       !value.links.every(isWorkspaceLink) ||
       !Array.isArray(value.shortcuts)
     ) {
-      throw new Error("Saved LiberTab data has an unsupported format.");
+      throw new Error("Saved InsiderTabs data has an unsupported format.");
     }
 
     const collections = value.collections;
     const links = value.links;
     const migratedShortcuts = value.shortcuts.map(migrateShortcut);
     if (migratedShortcuts.some((shortcut) => shortcut === null)) {
-      throw new Error("Saved LiberTab data contains an unsupported To/Link.");
+      throw new Error("Saved InsiderTabs data contains an unsupported To/Link.");
     }
     const shortcuts = migratedShortcuts.filter(
       (shortcut): shortcut is Shortcut => shortcut !== null,
@@ -152,7 +152,7 @@ function readWorkspace(): { data: WorkspaceData; error: string } {
         !collections.some((collection) => collection.id === link.collectionId),
       )
     ) {
-      throw new Error("Saved LiberTab data refers to a collection that does not exist.");
+      throw new Error("Saved InsiderTabs data refers to a collection that does not exist.");
     }
 
     return {

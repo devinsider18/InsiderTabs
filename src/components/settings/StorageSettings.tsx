@@ -65,7 +65,7 @@ export default function StorageSettings() {
   async function restoreDriveBackup() {
     if (
       entryCount > 0 &&
-      !window.confirm("Replace LiberTab data in this browser with the Drive backup?")
+      !window.confirm("Replace InsiderTabs data in this browser with the Drive backup?")
     ) {
       return;
     }
@@ -91,7 +91,7 @@ export default function StorageSettings() {
 
     if (
       entryCount > 0 &&
-      !window.confirm("Replace LiberTab data in this browser with this backup?")
+      !window.confirm("Replace InsiderTabs data in this browser with this backup?")
     ) {
       clearSelectedFile();
       return;
@@ -142,7 +142,7 @@ export default function StorageSettings() {
       <div className="backup-explainer">
         <strong>{entryCount} local app {entryCount === 1 ? "item" : "items"} found</strong>
         <p>
-          Backups include your collections, links, To/Links, and other LiberTab data
+          Backups include your collections, links, To/Links, and other InsiderTabs data
           stored in this browser.
         </p>
       </div>
@@ -205,7 +205,7 @@ export default function StorageSettings() {
             className="backup-file-input"
             type="file"
             accept="application/json,.json"
-            aria-label="Choose a LiberTab backup file"
+            aria-label="Choose an InsiderTabs backup file"
             onChange={(event) => void importLocalBackup(event.currentTarget.files?.[0])}
           />
         </div>
@@ -222,5 +222,5 @@ export default function StorageSettings() {
 
 function formatRestoreStatus(entryCount: number): string {
   const noun = entryCount === 1 ? "item" : "items";
-  return `Restored ${entryCount} LiberTab data ${noun}.`;
+  return `Restored ${entryCount} InsiderTabs data ${noun}.`;
 }

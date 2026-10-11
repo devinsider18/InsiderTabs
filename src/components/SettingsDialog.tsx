@@ -83,7 +83,7 @@ export default function SettingsDialog({ open, onOpenChange }: SettingsDialogPro
         <section className="settings-panel">
           <header className="settings-panel-header">
             <div>
-              <span className="settings-kicker">LIBRETAB SETTINGS</span>
+              <span className="settings-kicker">INSIDERTABS SETTINGS</span>
               <h2 id="settings-title">{sectionTitles[section]}</h2>
             </div>
             <button

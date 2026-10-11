@@ -20,7 +20,7 @@ export default function ProfileSettings({ onOpenStorage }: ProfileSettingsProps)
         <h3>Your data stays in your browser</h3>
         <p>
           Connect Google Drive in Storage &amp; backup to manually save or restore a
-          copy. LiberTab only requests access to files it creates.
+          copy. InsiderTabs only requests access to files it creates.
         </p>
         <button className="settings-inline-link" type="button" onClick={onOpenStorage}>
           Manage backups <Cloud size={15} />

@@ -48,7 +48,7 @@ export default function PreferencesSettings() {
       <section className="preference-group" aria-labelledby="toolbar-heading">
         <h3 id="toolbar-heading">Toolbar Button</h3>
         <PreferenceToggle
-          label="Open LiberTab in the side panel"
+          label="Open InsiderTabs in the side panel"
           checked={preferences.openSidePanel}
           onChange={() => togglePreference("openSidePanel")}
         />

@@ -1,9 +1,10 @@
-const backupFileName = "LiberTab backup.json";
+const backupFileName = "InsiderTabs backup.json";
+const legacyBackupFileName = "LiberTab backup.json";
 const storagePrefix = "libretab:";
 const driveScope = "https://www.googleapis.com/auth/drive.file";
 
-interface LiberTabBackup {
-  app: "libretab";
+interface InsiderTabsBackup {
+  app: "insidertabs" | "libretab";
   version: 1;
   createdAt: string;
   entries: Array<[string, string]>;
@@ -114,7 +115,7 @@ export async function requestDriveAccess(prompt = "consent"): Promise<string> {
   });
 }
 
-export function createLocalBackup(): LiberTabBackup {
+export function createLocalBackup(): InsiderTabsBackup {
   const entries: Array<[string, string]> = [];
   for (let index = 0; index < localStorage.length; index += 1) {
     const key = localStorage.key(index);
@@ -125,14 +126,14 @@ export function createLocalBackup(): LiberTabBackup {
   }
 
   return {
-    app: "libretab",
+    app: "insidertabs",
     version: 1,
     createdAt: new Date().toISOString(),
     entries,
   };
 }
 
-function parseBackup(raw: string): LiberTabBackup {
+function parseBackup(raw: string): InsiderTabsBackup {
   let value: unknown;
   try {
     value = JSON.parse(raw);
@@ -144,13 +145,13 @@ function parseBackup(raw: string): LiberTabBackup {
     typeof value !== "object" ||
     value === null ||
     !("app" in value) ||
-    value.app !== "libretab" ||
+    (value.app !== "insidertabs" && value.app !== "libretab") ||
     !("version" in value) ||
     value.version !== 1 ||
     !("entries" in value) ||
     !Array.isArray(value.entries)
   ) {
-    throw new Error("This file is not a LiberTab backup.");
+    throw new Error("This file is not an InsiderTabs backup.");
   }
 
   const entries: Array<[string, string]> = [];
@@ -168,7 +169,7 @@ function parseBackup(raw: string): LiberTabBackup {
   }
 
   return {
-    app: "libretab",
+    app: "insidertabs",
     version: 1,
     createdAt: "createdAt" in value && typeof value.createdAt === "string" ? value.createdAt : "",
     entries,
@@ -208,7 +209,7 @@ export function downloadLocalBackup(): void {
   const url = URL.createObjectURL(file);
   const link = document.createElement("a");
   link.href = url;
-  link.download = "libretab-backup.json";
+  link.download = "insidertabs-backup.json";
   link.click();
   window.setTimeout(() => URL.revokeObjectURL(url), 0);
 }
@@ -234,7 +235,8 @@ async function driveRequest<T>(url: string, token: string, init: RequestInit = {
 }
 
 async function findLatestBackup(token: string): Promise<DriveFile | undefined> {
-  const query = encodeURIComponent(`name = '${backupFileName}' and trashed = false`);
+  const queryExpression = `(name = '${backupFileName}' or name = '${legacyBackupFileName}') and trashed = false`;
+  const query = encodeURIComponent(queryExpression);
   const fields = encodeURIComponent("files(id,name)");
   const result = await driveRequest<{ files?: DriveFile[] }>(
     `https://www.googleapis.com/drive/v3/files?q=${query}&orderBy=modifiedTime%20desc&pageSize=1&fields=${fields}`,
@@ -248,6 +250,18 @@ export async function saveBackupToDrive(token: string): Promise<void> {
   const existingFile = await findLatestBackup(token);
 
   if (existingFile) {
+    if (existingFile.name === legacyBackupFileName) {
+      await driveRequest<DriveFile>(
+        `https://www.googleapis.com/drive/v3/files/${encodeURIComponent(existingFile.id)}`,
+        token,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: backupFileName }),
+        },
+      );
+    }
+
     await driveRequest<void>(
       `https://www.googleapis.com/upload/drive/v3/files/${encodeURIComponent(existingFile.id)}?uploadType=media`,
       token,
@@ -260,7 +274,7 @@ export async function saveBackupToDrive(token: string): Promise<void> {
     return;
   }
 
-  const boundary = `libretab_${Date.now()}`;
+  const boundary = `insidertabs_${Date.now()}`;
   const metadata = JSON.stringify({ name: backupFileName, mimeType: "application/json" });
   const body = [
     `--${boundary}`,
@@ -288,7 +302,7 @@ export async function saveBackupToDrive(token: string): Promise<void> {
 
 export async function restoreBackupFromDrive(token: string): Promise<number> {
   const backup = await findLatestBackup(token);
-  if (!backup) throw new Error("No LiberTab backup was found in this Google Drive.");
+  if (!backup) throw new Error("No InsiderTabs backup was found in this Google Drive.");
 
   const response = await fetch(
     `https://www.googleapis.com/drive/v3/files/${encodeURIComponent(backup.id)}?alt=media`,

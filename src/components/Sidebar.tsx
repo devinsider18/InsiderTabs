@@ -10,7 +10,7 @@ export default function Sidebar({ onOpenProfile }: SidebarProps) {
   return (
     <aside className="sidebar">
       <header className="sidebar-header">
-        <span className="workspace-mark" aria-label="LiberTab">L</span>
+        <span className="workspace-mark" aria-label="InsiderTabs">I</span>
         <button className="sidebar-collapse" type="button" aria-label="Collapse sidebar">
           <PanelLeftClose size={16} />
         </button>
