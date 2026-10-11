@@ -29,7 +29,7 @@ export default function CollectionDialog({
     }
   }, [initialName, open]);
 
-  function submit(event: React.FormEvent<HTMLFormElement>) {
+  function submit(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     const trimmedName = name.trim();
     if (!trimmedName) return;

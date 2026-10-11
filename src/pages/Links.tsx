@@ -19,7 +19,7 @@ export default function Links() {
     setDialogOpen(true);
   }
 
-  function openShortcut(event: React.FormEvent<HTMLFormElement>) {
+  function openShortcut(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     const enteredSlug = addressInput.trim().replace(/^to\//i, "").toLowerCase();
     const shortcut = shortcuts.find(({ slug }) => slug.toLowerCase() === enteredSlug);

@@ -52,7 +52,7 @@ export default function LinkDialog({
     }
   }, [defaultCollectionId, initialLink, initialShortcut, open]);
 
-  function submit(event: React.FormEvent<HTMLFormElement>) {
+  function submit(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     const trimmedTitle = title.trim();
     if (!trimmedTitle) {
